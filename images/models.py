@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 def content_file_name(instance, filename):
-    return '/'.join(['image_data', instance.img_hash])
+    return instance.img_hash
 
 class Image(models.Model):
     title = models.CharField(max_length=100)

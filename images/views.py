@@ -27,5 +27,6 @@ def submit(request):
     return render(request, 'submit.html', {'form': form})
 
 def view(request):
-    url = Image.objects.get(img_hash=request.path[1:])
+    url = Image.objects.get(img_hash=request.path.split('/')[1])
+    img_url = '/'.join(['http://', request.get_host(), url.file.url])
     return render(request, 'view.html', {'title': url.title, 'image': url.file.url})
