@@ -19,6 +19,8 @@ def submit(request):
             newImage.img_hash = getHash()
             newImage.save()
             return HttpResponse("Submitted! Hash: " + newImage.img_hash)
+        else:
+            return HttpResponse("Upload error!")
     form = UploadImageForm()
     return render(request, 'submit.html', {'form': form})
 

@@ -7,5 +7,5 @@ def content_file_name(instance, filename):
 
 class Image(models.Model):
     title = models.CharField(max_length=100)
-    file = models.FileField(upload_to=content_file_name)
+    file = models.ImageField(upload_to=content_file_name)
     img_hash = models.CharField(max_length=20)
