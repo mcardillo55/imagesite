@@ -2,14 +2,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from forms import UploadImageForm
 from models import Image
-import base64
+from hashids import Hashids
+from imagesite import settings
 import time
-
 
 # Create your views here.
 
 def getHash():
-	return base64.b64encode(str(time.time()))[8:-2]
+    hashids = Hashids(salt=settings.SECRET_KEY)
+    curTime = int(round(time.time() * 1000))
+    return hashids.encode(curTime)
 
 def submit(request):
     if request.method == 'POST':
