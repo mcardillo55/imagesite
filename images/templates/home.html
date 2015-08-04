@@ -1,10 +1,18 @@
 <html>
 <body>
     {% for img in latest_imgs %}
+    <a href="{{ img.img_hash }}">
     <div width="100px" height="100px">
         {{img.title}}
         <img width="100px" height="100px" src="{{ img.file.url }}">
     </div>
+    </a>
     {% endfor %}
+
+    <form action={% url 'images.views.submit' %} method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+    </form>
 </body>
 </html>

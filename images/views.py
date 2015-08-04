@@ -14,8 +14,11 @@ def getHash():
     return hashids.encode(curTime)
 
 def home(request):
+    if request.method == 'POST':
+        submit(request)
+    form = UploadImageForm()
     latest_imgs = Image.objects.all().order_by('-created_at')[:5]
-    return render(request, 'home.html', {'latest_imgs': latest_imgs})
+    return render(request, 'home.html', {'latest_imgs': latest_imgs, 'form': form})
 
 def submit(request):
     if request.method == 'POST':
