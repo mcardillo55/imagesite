@@ -13,6 +13,10 @@ def getHash():
     curTime = int(round(time.time() * 1000))
     return hashids.encode(curTime)
 
+def home(request):
+    latest_imgs = Image.objects.all().order_by('-created_at')[:5]
+    return render(request, 'home.html', {'latest_imgs': latest_imgs})
+
 def submit(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)

@@ -1,0 +1,10 @@
+<html>
+<body>
+    {% for img in latest_imgs %}
+    <div width="100px" height="100px">
+        {{img.title}}
+        <img width="100px" height="100px" src="{{ img.file.url }}">
+    </div>
+    {% endfor %}
+</body>
+</html>
