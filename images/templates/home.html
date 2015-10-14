@@ -1,4 +1,5 @@
-<html>
+{% extends "base.html" %}
+{% block content %}
 <body>
     {% for img in latest_imgs %}
     <a href="{{ img.img_hash }}">
@@ -15,4 +16,4 @@
     <input type="submit" value="Submit" />
     </form>
 </body>
-</html>
+{% endblock content %}
