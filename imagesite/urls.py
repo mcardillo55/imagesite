@@ -23,6 +23,7 @@ urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^submit/', 'images.views.submit'),
+    url(r'^delete/', 'images.views.delete'),
     url(r'^$', 'images.views.home'),
     url(r'^.*', 'images.views.view'),
 ]

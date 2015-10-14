@@ -33,6 +33,9 @@ def submit(request):
     form = UploadImageForm()
     return render(request, 'submit.html', {'form': form})
 
+def delete(request):
+    return render(request, 'delete.html')
+
 def view(request):
     url = Image.objects.get(img_hash=request.path.split('/')[1])
     img_url = '/'.join(['http://', request.get_host(), url.file.url])
