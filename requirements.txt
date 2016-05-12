@@ -1,4 +1,5 @@
 Django==1.8.3
 Pillow==2.9.0
+easy-thumbnails==2.3
 hashids==1.1.0
 wsgiref==0.1.2

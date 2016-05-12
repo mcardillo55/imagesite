@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 {% block content %}
 <body>
     <div id="latest_imgs">
         {% for img in latest_imgs %}
         <a href="{{ img.img_hash }}">
         <div class="image" width="100px" height="100px">
-            <img width="100px" height="100px" src="{{ img.file.url }}">
+            <img src="{% thumbnail img.file 100x100 crop upscale %}">
             {{img.title}}
         </div>
         </a>
