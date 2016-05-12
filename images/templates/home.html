@@ -2,14 +2,19 @@
 {% load thumbnail %}
 {% block content %}
 <body>
-    <div id="latest_imgs">
-        {% for img in latest_imgs %}
-        <a href="{{ img.img_hash }}">
-        <div class="image" width="100px" height="100px">
-            <img src="{% thumbnail img.file 100x100 crop upscale %}">
-            {{img.title}}
-        </div>
-        </a>
+    <div class="container" id="latest_imgs">
+        {% for group in latest_imgs %}
+            <div class="row">
+                {% for img in group %}
+                    <a href="{{ img.img_hash }}">
+                    <div class="image col-xs-1 text-center">
+                        <img src="{% thumbnail img.file 100x100 crop upscale %}"><p>
+                        {{img.title}}
+                    </div>
+                    </a>
+                    <div class="col-xs-1"></div>
+                {% endfor %}
+            </div>
         {% endfor %}
     </div>
 

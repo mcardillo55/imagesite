@@ -17,7 +17,8 @@ def home(request):
     if request.method == 'POST':
         submit(request)
     form = UploadImageForm()
-    latest_imgs = Image.objects.all().order_by('-created_at')[:5]
+    latest_imgs_objs = Image.objects.all().order_by('-created_at')
+    latest_imgs = [latest_imgs_objs[:4], latest_imgs_objs[4:8]]
     return render(request, 'home.html', {'latest_imgs': latest_imgs, 'form': form})
 
 def submit(request):
