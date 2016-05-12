@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+    color: #B0B0B0;
+}
+
+#latest_imgs {
+    border-radius: 15px;
+    background-color: gray;
+    width: 300px;
+    height: 600px;
+    margin: 30px auto;
+    padding: 30px 80px;
+
+}
+
+#submit_new {
+    border-radius: 15px;
+    background-color: gray;
+    width: 300px;
+    height: 100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.image {
+    margin-bottom: 10px;
+}

@@ -107,6 +107,9 @@ MEDIA_ROOT = '/Users/mikecardillo/devel/imagesite/image_data/'
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = ''
+
 STATICFILES_DIRS = (
     '/Users/mikecardillo/devel/imagesite/image_data',
+    '/Users/mikecardillo/devel/imagesite/static',
 )

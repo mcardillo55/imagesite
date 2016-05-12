@@ -18,12 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 import settings
 
-urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns += [
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^submit/', 'images.views.submit'),
     url(r'^delete/', 'images.views.delete'),
     url(r'^$', 'images.views.home'),
-    url(r'^.*', 'images.views.view'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+  + [ url(r'^.*', 'images.views.view'), ]
