@@ -14,9 +14,11 @@
 
     <div id="submit_new">
         <form action={% url 'images.views.submit' %} method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit" />
+            <table>
+                {% csrf_token %}
+                {{ form }}
+            </table>
+            <input type="submit" value="Submit" />
         </form>
     </div>
 </body>
