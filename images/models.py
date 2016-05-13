@@ -1,9 +1,11 @@
+import os
 from django.db import models
 
 # Create your models here.
 
 def content_file_name(instance, filename):
-    return instance.img_hash
+    extension = os.path.splitext(instance.file.name)[1]
+    return instance.img_hash + extension
 
 class Image(models.Model):
     title = models.CharField(max_length=100)
