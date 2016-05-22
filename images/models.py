@@ -5,7 +5,7 @@ from django.db import models
 
 def content_file_name(instance, filename):
     extension = os.path.splitext(instance.file.name)[1]
-    return instance.img_hash + extension
+    return instance.img_hash + extension.lower()
 
 class Image(models.Model):
     title = models.CharField(max_length=100)
