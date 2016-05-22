@@ -24,3 +24,7 @@ body {
 .image {
     margin: 15px 15px 0px 15px;
 }
+
+.post-image {
+    max-width: 680px;
+}
