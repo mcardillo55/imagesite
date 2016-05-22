@@ -37,7 +37,6 @@ def submit(request):
 def delete(request):
     return render(request, 'delete.html')
 
-def view(request):
-    url = Image.objects.get(img_hash=request.path.split('/')[1])
-    img_url = '/'.join(['http://', request.get_host(), url.file.url])
-    return render(request, 'view.html', {'title': url.title, 'image': url.file.url})
+def view(request, img_hash):
+    img = Image.objects.get(img_hash=img_hash)
+    return render(request, 'view.html', {'image': img})
