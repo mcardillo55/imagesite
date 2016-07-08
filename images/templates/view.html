@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-{{ image.title }}
-<img class="post-image" src="{{ image.file.url }}">
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8" id="view-post">
+                    <h1>{{ image.title }}</h1>
+                    <img class="img-responsive post-image" src="{{ image.file.url }}">
+                </div>
+
+                <div class="col-sm-4" id="trending-sidebar">
+                    <h2>Trending Pics</h2>
+                    Trending pics go here
+                </div>
+            </div>
+        </div>
+    </body>
 {% endblock content %}

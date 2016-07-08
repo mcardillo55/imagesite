@@ -3,6 +3,11 @@ body {
     color: #B0B0B0;
 }
 
+h1 {
+    background-color: #4a4a4a;
+    color: white;
+}
+
 #latest_imgs {
     border-radius: 15px;
     background-color: gray;
@@ -14,10 +19,15 @@ body {
     margin-top: 20px;
 }
 
-.image {
-    padding-top: 15px;
+#view-post {
+    border: 3px solid #4a4a4a;
+
 }
 
-.post-image {
-    max-width: 680px;
+#trending-sidebar {
+    border: 3px solid #4a4a4a;
+}
+
+.image {
+    padding-top: 15px;
 }
