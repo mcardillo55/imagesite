@@ -3,7 +3,7 @@
 <body>
     <a href="{% url 'images.views.home' %}">Home</a>
     {%  if newImage %}
-    Submitted! Hash: {{ newImage.img_hasAh }}
+    Submitted! Hash: {{ newImage.img_hash }}
     {% else %}
     Upload Error! Please try again!
     {% endif %}
