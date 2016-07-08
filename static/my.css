@@ -6,23 +6,16 @@ body {
 #latest_imgs {
     border-radius: 15px;
     background-color: gray;
-    width: 600px;
-    height: 300px;
-    margin: 30px auto;
-    padding-left: 50px;
 }
 
 #submit_new {
     border-radius: 15px;
     background-color: gray;
-    width: 600px;
-    height: 100px;
-    margin: 30px auto;
-    padding: 10px 205px;
+    margin-top: 20px;
 }
 
 .image {
-    margin: 15px 15px 0px 15px;
+    padding-top: 15px;
 }
 
 .post-image {
