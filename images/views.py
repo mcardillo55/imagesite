@@ -24,13 +24,12 @@ def home(request):
 def submit(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
+        newImage = None
         if form.is_valid():
             newImage = form.save(commit=False)
             newImage.img_hash = getHash()
             newImage.save()
-            return HttpResponse("Submitted! Hash: " + newImage.img_hash)
-        else:
-            return HttpResponse("Upload error!")
+        return render(request, "submit_post.html", {'newImage': newImage})
     form = UploadImageForm()
     return render(request, 'submit.html', {'form': form})
 

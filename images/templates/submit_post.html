@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <a href="{% url 'images.views.home' %}">Home</a>
+    {%  if newImage %}
+    Submitted! Hash: {{ newImage.img_hasAh }}
+    {% else %}
+    Upload Error! Please try again!
+    {% endif %}
+</body>
+{% endblock content %}
