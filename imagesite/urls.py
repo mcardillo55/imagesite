@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^signup/', 'images.views.signup'),
     url(r'^login/','images.views.login_view'),
     url(r'^logout/', 'django.contrib.auth.views.logout', name='logout', kwargs={'next_page': '/'}),
+    url(r'^profile/', 'images.views.profile'),
     url(r'^submit/', 'images.views.submit'),
     url(r'^delete/', 'images.views.delete'),
     url(r'^$', 'images.views.home'),

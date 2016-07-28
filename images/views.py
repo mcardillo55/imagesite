@@ -5,6 +5,7 @@ from hashids import Hashids
 from imagesite import settings
 from django.contrib.auth.views import login
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.http import Http404
 import time
 
@@ -66,6 +67,10 @@ def signup(request):
 
 def delete(request):
     return render(request, 'delete.html')
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
 
 
 def view(request, img_hash):
