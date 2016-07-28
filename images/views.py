@@ -42,4 +42,5 @@ def delete(request):
 
 def view(request, img_hash):
     img = Image.objects.get(img_hash=img_hash)
-    return render(request, 'view.html', {'image': img})
+    form = UploadImageForm()
+    return render(request, 'view.html', {'image': img, 'form': form})

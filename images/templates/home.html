@@ -1,34 +1,20 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 {% block content %}
-<body>
-    <div class="container"
-         <div id="latest_imgs">
-        {% for group in latest_imgs %}
-            <div class="row">
-                {% for img in group %}
-                    <a href="{{ img.img_hash }}">
-                    <div class="image col-md-3 text-center">
-                        <img class="img-responsive" src="{% thumbnail img.file 200x200 crop upscale %}"><p>
-                        {{img.title}}
-                    </div>
-                    </a>
-                {% endfor %}
-            </div>
-        {% endfor %}
-         </div>
+<div class="container">
+     <div id="latest_imgs">
+    {% for group in latest_imgs %}
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" id="submit_new">
-            <form action={% url 'images.views.submit' %} method="post" enctype="multipart/form-data" >
-                <table>
-                    {% csrf_token %}
-                    {{ form }}
-                </table>
-                <input type="submit" value="Submit" />
-            </form>
-            </div>
-            <div class="col-sm-4"></div>
-    </div>
-</body>
+            {% for img in group %}
+                <a href="{{ img.img_hash }}">
+                <div class="image col-md-3 text-center">
+                    <img class="img-responsive" src="{% thumbnail img.file 200x200 crop upscale %}"><p>
+                    {{img.title}}
+                </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% endfor %}
+     </div>
+</div>
 {% endblock content %}
