@@ -14,3 +14,4 @@ class Image(models.Model):
     file = models.ImageField(upload_to=content_file_name)
     img_hash = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now=True)
+    uploaded_by = models.ForeignKey('auth.User', blank=True, null=True)

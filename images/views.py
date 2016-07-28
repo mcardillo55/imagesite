@@ -30,6 +30,8 @@ def submit(request):
         if form.is_valid():
             newImage = form.save(commit=False)
             newImage.img_hash = getHash()
+            if request.user.is_authenticated():
+                newImage.uploaded_by = request.user
             newImage.save()
         return render(request, "submit_post.html", {'newImage': newImage})
     form = UploadImageForm()
