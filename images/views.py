@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from forms import UploadImageForm
+from forms import UploadImageForm, UserForm
 from models import Image
 from hashids import Hashids
 from imagesite import settings
 from django.contrib.auth.views import login
+from django.contrib.auth.models import User
 from django.http import Http404
 import time
 
@@ -47,6 +48,21 @@ def login_view(request):
         return login(request, template_name='modal_form.html', extra_context={'title': 'Log In'})
     else:
         return login(request, template_name='login.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            new_user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
+            login(request, new_user)
+            return render(request, "profile.html")
+    else:
+        form = UserForm()
+        if request.GET.get('ref') == 'modal':
+            return render(request, 'modal_form.html', {'title': 'Sign Up', 'form': form})
+        else:
+            return True
+            #non-modal signup code here
 
 def delete(request):
     return render(request, 'delete.html')
