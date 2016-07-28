@@ -4,6 +4,7 @@ from models import Image
 from hashids import Hashids
 from imagesite import settings
 from django.contrib.auth.views import login
+from django.http import Http404
 import time
 
 # Create your views here.
@@ -52,5 +53,8 @@ def delete(request):
 
 
 def view(request, img_hash):
-    img = Image.objects.get(img_hash=img_hash)
+    try:
+        img = Image.objects.get(img_hash=img_hash)
+    except:
+        raise Http404("Image does not exist.")
     return render(request, 'view.html', {'image': img})
