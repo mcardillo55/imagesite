@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8" id="view-post">
-                    <h1>{{ image.title }}</h1>
+                    <h1 id="image-view-title">{{ image.title }}</h1>
                     <h5>Uploaded by: {% if image.uploaded_by %}{{ image.uploaded_by }}{% else %}Anonymous{% endif %}</h5>
                     <img class="img-responsive post-image" src="{{ image.file.url }}">
                 </div>
