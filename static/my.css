@@ -3,6 +3,10 @@ body {
     color: #B0B0B0;
 }
 
+.navbar-btn {
+    margin-right: 15px;
+}
+
 #image-view-title {
     background-color: #4a4a4a;
     color: white;

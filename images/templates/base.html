@@ -32,7 +32,10 @@
                 </li>
                 </ul>
             {% else %}
-                <button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal">Sign in</button>
+                <div class="navbar-right">
+                    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal">Sign up</button>
+                    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal">Sign in</button>
+                </div>
             {% endif %}
         </div><!-- /.container-fluid -->
     </nav>
