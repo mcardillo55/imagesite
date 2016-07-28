@@ -6,6 +6,7 @@
                 <div class="col-md-8" id="view-post">
                     <h1 id="image-view-title">{{ image.title }}</h1>
                     <h5>Uploaded by: {% if image.uploaded_by %}{{ image.uploaded_by }}{% else %}Anonymous{% endif %}</h5>
+                    <h6>Views: {{ image.view_count }}</h6>
                     <img class="img-responsive post-image" src="{{ image.file.url }}">
                 </div>
                 <div class="col-md-4">

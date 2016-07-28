@@ -78,4 +78,6 @@ def view(request, img_hash):
         img = Image.objects.get(img_hash=img_hash)
     except:
         raise Http404("Image does not exist.")
+    img.view_count += 1
+    img.save()
     return render(request, 'view.html', {'image': img})
