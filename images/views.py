@@ -22,7 +22,7 @@ def home(request):
     if request.method == 'POST':
         submit(request)
     latest_imgs_objs = Image.objects.all().order_by('-created_at')
-    latest_imgs = [latest_imgs_objs[:4], latest_imgs_objs[4:8]]
+    latest_imgs = latest_imgs_objs[:24]
     return render(request, 'home.html', {'latest_imgs': latest_imgs})
 
 
