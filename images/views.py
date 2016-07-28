@@ -18,10 +18,9 @@ def getHash():
 def home(request):
     if request.method == 'POST':
         submit(request)
-    form = UploadImageForm()
     latest_imgs_objs = Image.objects.all().order_by('-created_at')
     latest_imgs = [latest_imgs_objs[:4], latest_imgs_objs[4:8]]
-    return render(request, 'home.html', {'latest_imgs': latest_imgs, 'form': form})
+    return render(request, 'home.html', {'latest_imgs': latest_imgs})
 
 
 def submit(request):
@@ -54,5 +53,4 @@ def delete(request):
 
 def view(request, img_hash):
     img = Image.objects.get(img_hash=img_hash)
-    form = UploadImageForm()
-    return render(request, 'view.html', {'image': img, 'form': form})
+    return render(request, 'view.html', {'image': img})
