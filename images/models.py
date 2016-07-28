@@ -15,4 +15,4 @@ class Image(models.Model):
     img_hash = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now=True)
     uploaded_by = models.ForeignKey('auth.User', blank=True, null=True)
-    view_count = models.IntegerField()
+    view_count = models.IntegerField(default=0)
