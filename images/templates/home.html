@@ -8,7 +8,7 @@
             <div class="row">
                 {% for img in group %}
                     <a href="{{ img.img_hash }}">
-                    <div class="image col-sm-3 text-center">
+                    <div class="image col-md-3 text-center">
                         <img class="img-responsive" src="{% thumbnail img.file 200x200 crop upscale %}"><p>
                         {{img.title}}
                     </div>
