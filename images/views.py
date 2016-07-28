@@ -3,6 +3,7 @@ from forms import UploadImageForm
 from models import Image
 from hashids import Hashids
 from imagesite import settings
+from django.contrib.auth.views import login
 import time
 
 # Create your views here.
@@ -35,8 +36,17 @@ def submit(request):
             newImage.save()
         return render(request, "submit_post.html", {'newImage': newImage})
     form = UploadImageForm()
-    return render(request, 'submit.html', {'form': form})
+    if request.GET.get('ref') == 'modal':
+        return render(request, 'modal_form.html', {'title': 'Upload an Image', 'form': form})
+    else:
+        return render(request, 'submit.html', {'form': form})
 
+
+def login_view(request):
+    if request.GET.get('ref') == 'modal':
+        return login(request, template_name='modal_form.html', extra_context={'title': 'Log In'})
+    else:
+        return login(request, template_name='login.html')
 
 def delete(request):
     return render(request, 'delete.html')

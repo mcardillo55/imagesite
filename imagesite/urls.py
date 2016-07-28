@@ -20,6 +20,9 @@ import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^login/$','django.contrib.auth.views.login',name='login',kwargs={'template_name': 'login.html'}),
+    url(r'^login/','images.views.login_view'),
+    url(r'^logout/', 'django.contrib.auth.views.logout', name='logout', kwargs={'next_page': '/'}),
     url(r'^submit/', 'images.views.submit'),
     url(r'^delete/', 'images.views.delete'),
     url(r'^$', 'images.views.home'),
