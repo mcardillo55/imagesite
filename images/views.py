@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from forms import UploadImageForm
 from models import Image
 from hashids import Hashids
@@ -8,10 +7,12 @@ import time
 
 # Create your views here.
 
+
 def getHash():
     hashids = Hashids(salt=settings.SECRET_KEY)
     curTime = int(round(time.time() * 1000))
     return hashids.encode(curTime)
+
 
 def home(request):
     if request.method == 'POST':
@@ -20,6 +21,7 @@ def home(request):
     latest_imgs_objs = Image.objects.all().order_by('-created_at')
     latest_imgs = [latest_imgs_objs[:4], latest_imgs_objs[4:8]]
     return render(request, 'home.html', {'latest_imgs': latest_imgs, 'form': form})
+
 
 def submit(request):
     if request.method == 'POST':
@@ -33,8 +35,10 @@ def submit(request):
     form = UploadImageForm()
     return render(request, 'submit.html', {'form': form})
 
+
 def delete(request):
     return render(request, 'delete.html')
+
 
 def view(request, img_hash):
     img = Image.objects.get(img_hash=img_hash)
