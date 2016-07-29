@@ -27,14 +27,12 @@ $(document).ready(function()
                     type: 'GET',
                     data: {'last': img_hash},
                     success: function (data) {
-                        $('#latest_imgs').append(function() {
-                            console.log(data);  
+                        $('#latest_imgs').append(function() { 
                             return data;
                         });
                         },
                     complete: function(data) {
-                        if (data.responseText != '') {
-                            console.log(data);
+                        if (data.responseText != '\n') {
                             /*keep locked if we are at the oldest pic*/
                             infinite_scroll_lock = false;
                         };
