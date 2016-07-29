@@ -6,7 +6,7 @@ from imagesite import settings
 from django.contrib.auth.views import login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import Http404, HttpResponse
 import time
 
 # Create your views here.
@@ -17,6 +17,16 @@ def getHash():
     curTime = int(round(time.time() * 1000))
     return hashids.encode(curTime)
 
+def latest(request):
+    last = request.GET.get('last')
+    try:
+        last_created_at = Image.objects.get(img_hash=last)
+    except:
+        return HttpResponse('')
+    latest_imgs_objs = Image.objects.filter(created_at__lt=last_created_at.created_at).order_by('-created_at')
+    latest_imgs = latest_imgs_objs[:24]
+    return render(request, 'latest_images_stub.html', {'latest_imgs': latest_imgs})
+    
 
 def home(request):
     if request.method == 'POST':
