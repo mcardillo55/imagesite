@@ -46,6 +46,7 @@ def submit(request):
             if request.user.is_authenticated():
                 newImage.uploaded_by = request.user
             newImage.save()
+            request.session[newImage.img_hash] = True 
         return render(request, "submit_post.html", {'newImage': newImage})
     form = UploadImageForm()
     if request.GET.get('ref') == 'modal':
@@ -75,8 +76,21 @@ def signup(request):
             return True
             #non-modal signup code here
 
-def delete(request):
-    return render(request, 'delete.html')
+def delete(request, img_hash):
+    if request.method == 'GET':
+        return render(request, 'delete.html', {'img_hash': img_hash})
+    else:
+        #request.method == POST
+        img_hash=request.POST.get('img_hash')
+        try:
+            img = Image.objects.get(img_hash=img_hash)
+        except:
+            return HttpResponse("Error when trying to delete image")
+        if request.session.get(img_hash, False) or request.user == img.uploaded_by:
+            img.delete()
+            return HttpResponse("Deleted Successfully!")
+        else:
+            return HttpResponse("You do not have permission to delete this image")
 
 @login_required
 def profile(request):
@@ -90,4 +104,5 @@ def view(request, img_hash):
         raise Http404("Image does not exist.")
     img.view_count += 1
     img.save()
-    return render(request, 'view.html', {'image': img})
+    is_submitter = request.session.get(img_hash, False) or request.user == img.uploaded_by
+    return render(request, 'view.html', {'image': img, 'user_is_submitter': is_submitter})

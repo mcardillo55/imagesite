@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^logout/', 'django.contrib.auth.views.logout', name='logout', kwargs={'next_page': '/'}),
     url(r'^profile/', 'images.views.profile'),
     url(r'^submit/', 'images.views.submit'),
-    url(r'^delete/', 'images.views.delete'),
+    url(r'^delete/(?P<img_hash>.*)', 'images.views.delete', name='blah'),
     url(r'^latest/', 'images.views.latest'),
     url(r'^$', 'images.views.home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \

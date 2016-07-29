@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-Really delete?
-{{ title }}
-<img src="{{ image }}">
+<h3>Really delete?<h3>
+<form action="{% url 'images.views.delete' img_hash=image.img_hash %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="img_hash" value="{{ img_hash }}" class="btn btn-danger">Delete</button>
+</form>
+<button type="button" class="btn btn-secondary">Cancel</button>
 {% endblock content %}
