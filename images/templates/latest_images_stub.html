@@ -1,0 +1,8 @@
+{% load thumbnail %}
+{% for img in latest_imgs %}
+    <a href="{{ img.img_hash }}">
+    <div class="image col-md-3 col-sm-4 col-xs-6 text-center">
+        <img class="img-responsive" src="{% thumbnail img.file 350x350 crop upscale %}"><p>
+    </div>
+    </a>
+{% endfor %}
