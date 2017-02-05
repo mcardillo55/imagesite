@@ -13,10 +13,12 @@
                 <h2>Trending Pics</h2>
                 Trending pics go here
             </div>
+            {% if user_is_submitter %}
             <div id="manage-sidebar">
                 <h2>Manage Image</h2>
                 <a href="{% url 'images.views.delete' img_hash=image.img_hash %}"><button type="button" class="btn">Delete</button></a>
             </div>
+            {% endif %}
         </div>
     </div>
   </div>
