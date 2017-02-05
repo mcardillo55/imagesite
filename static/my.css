@@ -9,8 +9,10 @@ body {
 }
 
 #latest_imgs {
+    background-color: #2F2F2F;
     border-radius: 15px;
-    background-color: gray;
+    padding-top: 10px;
+    
 }
 
 #submit_new {
