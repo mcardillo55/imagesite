@@ -29,26 +29,33 @@
 <div class="container">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <div class="navbar-left">
+      <div class="navbar-header">
+        <button class="navbar-toggle navbar-toggle-right" type="button" data-toggle="collapse" data-target="#navbar-collapse-content" aria-controls="navbar-collapse-content" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="{% url 'images.views.home' %}">ImgSite</a>
-        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/submit/?ref=modal">Upload</button>
       </div>
-      <div class="navbar-right">
-      {% if user.is_authenticated %}
+      <div class="navbar-collapse collapse" id="navbar-collapse-content">
         <ul class="nav navbar-nav">
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user }}<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{% url 'images.views.profile' %}">My Profile</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/logout/">Log Out</a></li>
-          </ul>
-        </li>
+          <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/submit/?ref=modal">Upload</button>
         </ul>
-      {% else %}
-        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/signup/?ref=modal">Sign up</button>
-        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal">Sign in</button>
-      {% endif %}
+        <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user }}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'images.views.profile' %}">My Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/logout/">Log Out</a></li>
+            </ul>
+          </li>
+        {% else %}
+          <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/signup/?ref=modal">Sign up</button>
+          <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal">Sign in</button>
+        {% endif %}
+        </ul>
       </div>
     </div>
   </nav>
