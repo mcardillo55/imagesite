@@ -6,15 +6,15 @@
                 <div class="col-md-8" id="view-post">
                     <h1 id="image-view-title">{{ image.title }}</h1>
                     <h5>Uploaded by: {% if image.uploaded_by %}{{ image.uploaded_by }}{% else %}Anonymous{% endif %}</h5>
-                    <h6>Views: {{ image.view_count }}</h6>
                     <img class="img-responsive post-image" src="{{ image.file.url }}">
+                    <h6>Views: {{ image.view_count }}</h6>
                 </div>
-                <div class="col-md-4">
-                    <div class="col-xs-12" id="trending-sidebar">
+                <div class="col-md-4" id="sidebar">
+                    <div id="trending-sidebar">
                         <h2>Trending Pics</h2>
                         Trending pics go here
                     </div>
-                    <div class="col-xs-12" id="trending-sidebar">
+                    <div id="manage-sidebar">
                         <h2>Manage Image</h2>
                         <a href="{% url 'images.views.delete' img_hash=image.img_hash %}"><button type="button" class="btn">Delete</button></a>
                     </div>

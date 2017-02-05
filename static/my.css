@@ -8,15 +8,6 @@ body {
     margin-right: 15px;
 }
 
-.img-responsive {
-    border: 3px solid #4a4a4a;
-}
-
-#image-view-title {
-    background-color: #4a4a4a;
-    color: white;
-}
-
 #latest_imgs {
     border-radius: 15px;
     background-color: gray;
@@ -29,16 +20,8 @@ body {
 }
 
 #view-post {
-    border: 3px solid #4a4a4a;
-    padding-bottom: 18px;
-}
-
-#trending-sidebar {
-    border: 3px solid #4a4a4a;
-}
-
-.image {
-    padding-top: 15px;
+    background-color: #2F2F2F;
+    #padding-bottom: 18px;
 }
 
 .modal {
