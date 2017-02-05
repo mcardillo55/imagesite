@@ -40,7 +40,9 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-collapse-content">
         <ul class="nav navbar-nav">
-          <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/submit/?ref=modal">Upload</button>
+          <li>
+          <a href="#" data-toggle="modal" data-target="#myModal" data-url="/submit/?ref=modal"><span class="glyphicon glyphicon-upload"></span> Upload</a>
+        </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
@@ -54,10 +56,10 @@
           </li>
         {% else %}
           <li>
-            <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/signup/?ref=modal">Sign up</button>
+            <a href="#" data-toggle="modal" data-target="#myModal" data-url="/signup/?ref=modal"><span class="glyphicon glyphicon-user"></span> Sign up</a>
           </li>
           <li>
-            <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal">Sign in</button>
+            <a href="#" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
           </li>
         {% endif %}
         </ul>
