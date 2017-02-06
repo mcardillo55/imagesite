@@ -10,7 +10,7 @@ body {
 
 #latest_imgs {
     background-color: #2F2F2F;
-    border-radius: 15px;
+    border-radius: 4px;
     padding-top: 10px;
     
 }
@@ -22,8 +22,13 @@ body {
 }
 
 #view-post {
+    border-radius: 4px;
     background-color: #2F2F2F;
     #padding-bottom: 18px;
+}
+
+#image-view-title {
+    padding-top: 15px;
 }
 
 .modal {
