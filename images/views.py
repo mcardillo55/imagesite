@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
 from forms import UploadImageForm, UserForm
 from models import Image
 from hashids import Hashids
@@ -47,7 +48,7 @@ def submit(request):
                 newImage.uploaded_by = request.user
             newImage.save()
             request.session[newImage.img_hash] = True
-            return redirect('/' + newImage.img_hash)
+            return redirect(reverse('images.views.view', kwargs={'img_hash': newImage.img_hash}))
         return render(request, "submit_post.html", {'newImage': newImage})
     form = UploadImageForm()
     if request.GET.get('ref') == 'modal':
