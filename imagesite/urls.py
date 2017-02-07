@@ -30,4 +30,4 @@ urlpatterns = [
     url(r'^$', 'images.views.home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
-  + [ url(r'(?P<img_hash>^.*)', 'images.views.view'), ]
+  + [ url(r'(?P<img_hash>.*)', 'images.views.view'), ]
