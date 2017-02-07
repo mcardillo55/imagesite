@@ -96,7 +96,8 @@ def delete(request, img_hash):
 
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    images_uploaded_by_user = Image.objects.filter(uploaded_by=request.user).order_by('-created_at')
+    return render(request, 'profile.html', {'images_uploaded_by_user': images_uploaded_by_user})
 
 
 def view(request, img_hash):
