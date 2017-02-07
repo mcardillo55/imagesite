@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from forms import UploadImageForm, UserForm
 from models import Image
 from hashids import Hashids
@@ -26,7 +26,7 @@ def latest(request):
     latest_imgs_objs = Image.objects.filter(created_at__lt=last_created_at.created_at).order_by('-created_at')
     latest_imgs = latest_imgs_objs[:24]
     return render(request, 'latest_images_stub.html', {'latest_imgs': latest_imgs})
-    
+
 
 def home(request):
     if request.method == 'POST':
@@ -46,7 +46,8 @@ def submit(request):
             if request.user.is_authenticated():
                 newImage.uploaded_by = request.user
             newImage.save()
-            request.session[newImage.img_hash] = True 
+            request.session[newImage.img_hash] = True
+            return redirect('/' + newImage.img_hash)
         return render(request, "submit_post.html", {'newImage': newImage})
     form = UploadImageForm()
     if request.GET.get('ref') == 'modal':
