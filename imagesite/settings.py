@@ -109,7 +109,7 @@ MEDIA_URL = '/img/'
 
 MEDIA_ROOT = CWD + '/image_data/'
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 STATIC_ROOT = ''
 
