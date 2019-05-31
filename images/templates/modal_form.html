@@ -3,7 +3,7 @@
     <h4>{{ title }}</h4>
 </div>
 <div class="modal-body">
-    <form action="{{ request.path }}?next=/" method="post" enctype="multipart/form-data" >
+    <form action="{{ request.path }}?next={% url 'images.views.home' %}" method="post" enctype="multipart/form-data" >
         <table>
             {% csrf_token %}
             {{ form }}

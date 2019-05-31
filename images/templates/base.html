@@ -41,7 +41,7 @@
       <div class="navbar-collapse collapse" id="navbar-collapse-content">
         <ul class="nav navbar-nav">
           <li>
-          <a href="#" data-toggle="modal" data-target="#myModal" data-url="/submit/?ref=modal"><span class="glyphicon glyphicon-upload"></span> Upload</a>
+          <a href="#" data-toggle="modal" data-target="#myModal" data-url="{% url 'images.views.submit' %}?ref=modal"><span class="glyphicon glyphicon-upload"></span> Upload</a>
         </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -51,7 +51,7 @@
             <ul class="dropdown-menu">
               <li><a href="{% url 'images.views.profile' %}">My Profile</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="/logout/">Log Out</a></li>
+              <li><a href="{% url 'django.contrib.auth.views.logout' %}?next={% url 'images.views.home' %}">Log Out</a></li>
             </ul>
           </li>
         {% else %}
