@@ -56,10 +56,10 @@
           </li>
         {% else %}
           <li>
-            <a href="#" data-toggle="modal" data-target="#myModal" data-url="/signup/?ref=modal"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+            <a href="#" data-toggle="modal" data-target="#myModal" data-url="{% url 'images.views.signup' %}?ref=modal"><span class="glyphicon glyphicon-user"></span> Sign up</a>
           </li>
           <li>
-            <a href="#" data-toggle="modal" data-target="#myModal" data-url="/login/?ref=modal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <a href="#" data-toggle="modal" data-target="#myModal" data-url="{% url 'images.views.login_view' %}?ref=modal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
           </li>
         {% endif %}
         </ul>
