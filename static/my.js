@@ -23,7 +23,7 @@ $(document).ready(function()
                 infinite_scroll_lock = true;
                 img_hash = $('.latest_img').last().attr('href');
                 $.ajax({
-                    url: '/latest/',
+                    url: 'latest/',
                     type: 'GET',
                     data: {'last': img_hash},
                     success: function (data) {
