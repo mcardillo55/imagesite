@@ -1,4 +1,4 @@
 Django==1.8.3
 easy-thumbnails==2.3
 hashids==1.1.0
-Pillow==3.3.0
+Pillow==6.2.0
