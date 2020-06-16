@@ -103,17 +103,15 @@ APPEND_SLASH= True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-CWD = os.getcwd() # Development ONLY
-
 MEDIA_URL = '/img/'
 
-MEDIA_ROOT = CWD + '/image_data/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'image_data')
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(BASE_DIR, '../../static')
 
 STATICFILES_DIRS = (
-    CWD + '/image_data',
-    CWD + '/static',
+    os.path.join(BASE_DIR, 'image_data'),
+    os.path.join(BASE_DIR, 'static'),
 )
