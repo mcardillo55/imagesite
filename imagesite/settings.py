@@ -103,6 +103,8 @@ APPEND_SLASH= True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+LOGIN_URL = 'images.views.login_view'
+
 MEDIA_URL = '/img/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image_data')
