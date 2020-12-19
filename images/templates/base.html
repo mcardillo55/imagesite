@@ -1,19 +1,16 @@
 {% load staticfiles %}<!DOCTYPE html>
 <html>
 <head>
-    <title>ImgSite | Home of Images</title>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static "my.css" %}">
 
-    <link rel="stylesheet" href="{% static "my.css" %}">
+  <script src="https://kit.fontawesome.com/afb8e7f539.js" crossorigin="anonymous"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="{% static "my.js" %}"></script>
+  <title>ImgSite | Home of Images</title>
 </head>
 <header>
 
@@ -27,48 +24,50 @@
     </div>
 </div>
 <div class="container">
-  <div class="col-sm-10 col-sm-offset-1">
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button class="navbar-toggle navbar-toggle-right" type="button" data-toggle="collapse" data-target="#navbar-collapse-content" aria-controls="navbar-collapse-content" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'images.views.home' %}">ImgSite</a>
-      </div>
-      <div class="navbar-collapse collapse" id="navbar-collapse-content">
-        <ul class="nav navbar-nav">
-          <li>
-          <a href="#" data-toggle="modal" data-target="#myModal" data-url="{% url 'images.views.submit' %}?ref=modal"><span class="glyphicon glyphicon-upload"></span> Upload</a>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+    <a class="navbar-brand" href="{% url 'images.views.home' %}">ImgSite</a>
+    <button class="navbar-toggler navbar-toggle-right" type="button" data-toggle="collapse" data-target="#navbar-collapse-content" aria-controls="navbar-collapse-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar-collapse-content">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal"
+          data-target="#myModal" data-url="{% url 'images.views.submit'
+          %}?ref=modal"><span class="fas fa-upload"></span> Upload</a>
         </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        {% if user.is_authenticated %}
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user }}<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="{% url 'images.views.profile' %}">My Profile</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="{% url 'django.contrib.auth.views.logout' %}?next={% url 'images.views.home' %}">Log Out</a></li>
-            </ul>
-          </li>
-        {% else %}
-          <li>
-            <a href="#" data-toggle="modal" data-target="#myModal" data-url="{% url 'images.views.signup' %}?ref=modal"><span class="glyphicon glyphicon-user"></span> Sign up</a>
-          </li>
-          <li>
-            <a href="#" data-toggle="modal" data-target="#myModal" data-url="{% url 'images.views.login_view' %}?ref=modal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-          </li>
-        {% endif %}
-        </ul>
-      </div>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user }}<span class="caret"></span></a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'images.views.profile' %}">My Profile</a>
+            <div class="dropdown-divider" class="divider"></div>
+            <a class="dropdown-item" href="{% url 'django.contrib.auth.views.logout' %}?next={% url 'images.views.home' %}">Log Out</a>
+          </div>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal"
+          data-target="#myModal" data-url="{% url 'images.views.signup'
+          %}?ref=modal"><span class="fas fa-user"></span> Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal"
+          data-target="#myModal" data-url="{% url 'images.views.login_view'
+          %}?ref=modal"><span class="fas fa-sign-in-alt"></span> Login</a>
+        </li>
+      {% endif %}
+      </ul>
     </div>
   </nav>
 {% block content %}
 {% endblock content %}
-  </div>
 </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="{% static "my.js" %}"></script>
 </body>
 </html>
