@@ -8,10 +8,16 @@ body {
     margin-right: 15px;
 }
 
-#latest_imgs {
-    background-color: #2F2F2F;
+.navbar {
     border-radius: 4px;
-    padding-top: 10px;
+}
+
+#latest_imgs {
+    background-color: rgb(52, 58, 64);
+    border-radius: 4px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 20px;
 
 }
 
@@ -28,7 +34,7 @@ body {
 #view-post {
     border-radius: 4px;
     background-color: #2F2F2F;
-    #padding-bottom: 18px;
+    padding-bottom: 18px;
 }
 
 #image-view-title {
