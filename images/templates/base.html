@@ -16,13 +16,59 @@
 
 </header>
 <body>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+
+  <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="upload-modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <!-- this will be filled by ajax call -->
+          <div class="modal-header">
+            <h4>Upload</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form action="{% url 'images.views.submit' %}?next={% url 'images.views.home' %}" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {{ upload_form.as_p }}
+                <input type="submit" value="Submit" />
+              </form>
+          </div>
         </div>
     </div>
-</div>
+  </div>
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signup-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Sign Up</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+              <form action="{% url 'images.views.signup' %}?next={% url 'images.views.home' %}" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
+                {{ signup_form.as_p }}
+                <input type="submit" value="Submit" />
+              </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>Login</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'images.views.login_view' %}?next={% url 'images.views.home' %}" method="post" enctype="multipart/form-data" >
+                  {% csrf_token %}
+                  {{ login_form.as_p }}
+                  <input type="submit" value="Submit" />
+                </form>
+            </div>
+          </div>
+      </div>
+  </div>
+
 <div class="container">
   <nav class="navbar navbar-dark bg-dark navbar-expand-md">
     <a class="navbar-brand" href="{% url 'images.views.home' %}">ImgSite</a>
@@ -33,8 +79,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal"
-          data-target="#myModal" data-url="{% url 'images.views.submit'
-          %}?ref=modal"><span class="fas fa-upload"></span> Upload</a>
+          data-target="#upload-modal" data-url="/upload/?ref=modal"><span class="fas fa-upload"></span> Upload</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -50,13 +95,13 @@
       {% else %}
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal"
-          data-target="#myModal" data-url="{% url 'images.views.signup'
-          %}?ref=modal"><span class="fas fa-user"></span> Sign up</a>
+          data-target="#signup-modal"><span class="fas fa-user"></span> Sign up</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal"
-          data-target="#myModal" data-url="{% url 'images.views.login_view'
-          %}?ref=modal"><span class="fas fa-sign-in-alt"></span> Login</a>
+          data-target="#login-modal">
+            <span class="fas fa-sign-in-alt"></span> Login
+          </a>
         </li>
       {% endif %}
       </ul>
