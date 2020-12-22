@@ -1,8 +1,8 @@
 {% load thumbnail %}
 {% for img in latest_imgs %}
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 image text-center">
     <a class="latest_img" href="{{ img.img_hash }}">
-    <div class="image col-md-3 col-sm-4 col-xs-6 text-center">
-        <img class="img-responsive" src="{% thumbnail img.file 350x350 crop upscale %}"><p>
-    </div>
+        <img class="img-fluid" src="{% thumbnail img.file 350x350 crop upscale %}">
     </a>
+</div>
 {% endfor %}
