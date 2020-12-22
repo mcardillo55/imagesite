@@ -5,7 +5,7 @@
         <div class="col-md-8" id="view-post">
             <h1 id="image-view-title">{{ image.title }}</h1>
             <h5>Uploaded by: {% if image.uploaded_by %}{{ image.uploaded_by }}{% else %}Anonymous{% endif %}</h5>
-            <img class="img-responsive post-image" src="{{ image.file.url }}">
+            <img class="img-fluid post-image" src="{{ image.file.url }}">
             <h6>Views: {{ image.view_count }}</h6>
         </div>
         <div class="col-md-4" id="sidebar">
@@ -16,7 +16,9 @@
             {% if user_is_submitter %}
             <div id="manage-sidebar">
                 <h2>Manage Image</h2>
-                <a href="{% url 'images.views.delete' img_hash=image.img_hash %}"><button type="button" class="btn">Delete</button></a>
+                <a href="{% url 'images.views.delete' img_hash=image.img_hash %}">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
             </div>
             {% endif %}
         </div>
