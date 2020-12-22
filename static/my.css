@@ -10,6 +10,7 @@ body {
 
 .navbar {
     border-radius: 4px;
+    margin-bottom: 20px;
 }
 
 #latest_imgs {
@@ -19,7 +20,6 @@ body {
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-top: 20px;
 }
 
 .image {
@@ -38,7 +38,7 @@ body {
 
 #view-post {
     border-radius: 4px;
-    background-color: #2F2F2F;
+    background-color: rgb(52, 58, 64);
     padding-bottom: 18px;
 }
 
