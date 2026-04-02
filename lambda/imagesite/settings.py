@@ -26,9 +26,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.security.SecurityMiddleware",
 ]
 
 ROOT_URLCONF = "imagesite.urls"
@@ -77,7 +78,7 @@ USE_TZ = True
 APPEND_SLASH = True
 
 # Static files — served from CloudFront in production.
-STATIC_URL = os.environ.get("STATIC_URL", "/imgsite/static/")
+STATIC_URL = "/imgsite/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
